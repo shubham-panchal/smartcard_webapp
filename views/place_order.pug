@@ -1,0 +1,50 @@
+extends vendor 
+include mixins/_place_order
+
+block content 
+    aside
+        ul.options-wrapper
+          a(href="/vendor/order") 
+              li.options.show--courses.selected Order
+          // <li class="options show--faculties">Faculties</li>
+          //- li.options.show--payments Payment
+          // <li class="options add-member">Mark Attendance</li>
+          a(href="/vendor/add-foodItem") 
+              li.options.show--courses Add Item
+    main
+
+        .modal
+            .modal-section--1
+                .order-wrapper--1
+                    span.order-details-heading Order Details
+                    a(href="/vendor/order").back-to-order Back
+                .order-wrapper--2
+                    //- p=cart
+                    each item in cart 
+                        +place_order(item)
+                    
+                    
+                .order-wrapper--3
+                    span.wrapper-3-text Total
+                    span.wrapper-3-val=`₹${total}`
+            .modal-section--2
+                if success 
+                    .payment--successfull Payment Successful
+                if balanceError 
+                    .payment--declined Insufficient Balance
+                if validationError 
+                    .payment--declined Invalid Pin
+                form(action="", method='POST').outer-wrapper
+                    .inner-wrapper
+                        select#member-type.input.select(name='member_type' required)
+                            option(value='student') Student
+                            option(value='faculty') Faculty
+                            option(value='vendor') Vendor
+                    .inner-wrapper
+                        input.user-id.input(type='text' name='member_id' placeholder='user ID' autofocus required)
+                    .inner-wrapper
+                        input.user-password.input(type='password' name='member_pin' placeholder='password' autofocus required)
+                    button.btn-confirm-payment(type='submit') Proceed to pay
+                .x    
+                    a(href="/vendor/new-order") 
+                        button.btn-confirm-payment.back-to--menu Back to Menu

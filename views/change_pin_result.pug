@@ -1,0 +1,74 @@
+
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title=`${userType[0].toUpperCase()+userType.slice(1)} Page` 
+  link(rel='stylesheet' href='/stylesheets/faculty-style.css')
+  link(rel='preconnect' href='https://fonts.googleapis.com')
+  link(rel='preconnect' href='https://fonts.gstatic.com' crossorigin='')
+  link(href='https://fonts.googleapis.com/css2?family=Poppins&display=swap' rel='stylesheet')
+  //
+    <script
+    src="https://kit.fontawesome.com/a3cf294e88.js"
+    crossorigin="anonymous"
+    ></script>
+.container
+  header
+    div
+    h4.heading=`${userType[0].toUpperCase()+userType.slice(1)} Page`
+    a.logout-btn(href='/') Logout
+  .body-wrapper
+    aside
+        if userType ==='student'
+            ul.options-wrapper
+                a(href=`/${userType}/${id}/all-courses`) 
+                    li.options.show--courses Courses
+                a(href=`/${userType}/${id}/payments`) 
+                    li.options.show--payments Payment  
+                a(href=`/${userType}/${id}/library-details`) 
+                    li.options.show--payments Library Details   
+                a(href=`/${userType}/${id}/change-pin`) 
+                    li.options.show--payments.selected Change PIN
+
+        if userType==='faculty'
+            ul.options-wrapper
+                a(href=`/${userType}/${id}/all-courses`) 
+                    li.options.show--courses Courses
+                a(href=`/faculty/${id}/view-attendance`) 
+                    li.options.show--courses View Attendance
+                a(href=`/faculty/${id}/add-course`) 
+                    li.options.show--courses Add Course
+                a(href=`/faculty/${id}/add-students`) 
+                    li.options.show--courses Add Students
+                a(href=`/${userType}/${id}/payments`) 
+                    li.options.show--payments Payment
+                a(href=`/${userType}/${id}/change-pin`) 
+                    li.options.show--payments.selected Change PIN
+    main
+        .main-heading-wrapper
+            p.main-heading Change PIN 
+        if msg === false
+            .pin--unchanged Previous PIN incorrect
+            .labels
+                span.label-name Previous PIN
+                input#member-id.inputBox.rechargeBox(type='text' name='member_pin' autofocus required)
+            .labels
+                span.label-name New PIN
+                input#member-id.inputBox.rechargeAmount(type='text' name='new_member_pin' autofocus required)    
+            .labels
+                //- a(href="/admin/recharge-wallet/step2").btn-submit 
+                a(href=`/${userType}/${id}/change-pin`) 
+                    button.btn.btn-submit Retry
+        if msg === true 
+            .pin--changed PIN changed successfully
+            .labels
+                span.label-name Previous PIN
+                input#member-id.inputBox.rechargeBox(type='text' name='member_pin' autofocus required)
+            .labels
+                span.label-name New PIN
+                input#member-id.inputBox.rechargeAmount(type='text' name='new_member_pin' autofocus required)        
+            .labels
+                //- a(href="/admin/recharge-wallet/step2").btn-submit 
+                a(href=`/${userType}/${id}/change-pin`) 
+                    button.btn.btn-submit Back

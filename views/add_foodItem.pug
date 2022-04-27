@@ -1,0 +1,33 @@
+extends vendor 
+
+block content 
+    aside
+        ul.options-wrapper
+          a(href="/vendor/order") 
+              li.options.show--courses Order
+          // <li class="options show--faculties">Faculties</li>
+          //- li.options.show--payments Payment
+          // <li class="options add-member">Mark Attendance</li>
+          a(href="/vendor/add-foodItem") 
+              li.options.show--courses.selected Add Item
+    main
+        .main-heading-wrapper
+            p.main-heading Add Food Item
+        form(action ='', method='POST')
+            .form-wrapper
+                //- .labels
+                //-     span.label-name Id
+                //-     input#member-id.inputBox(type='text' name='item_id' required)
+                .labels
+                    span.label-name Item Name
+                    input#member-name.inputBox(type='text' name='item_name' required)
+                
+                .labels
+                    span.label-name Item Image
+                    input#member-name.select.item-image(type='file' name='item_img' required)
+                
+                .labels
+                    span.label-name Item Price
+                    input#member-contact.select(type='number' name= 'item_price' min='0' required)
+                .labels
+                    button.btn.btn-submit(type='submit') Add Item

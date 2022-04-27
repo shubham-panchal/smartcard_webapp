@@ -1,0 +1,13 @@
+mixin place_order(item) 
+
+    
+    .order-items
+        .order-items-wrapper--1
+            span.order-item-name= item.item_name 
+            .order-item-label-wrapper
+                span.order-item-label Qnt: 
+                    span.order-item-val=item.item_qty
+                span.order-item-label Mrp: 
+                    span.order-item-val=`₹${item.item_qty * item.item_price}`
+        .order-items-wrapper--2
+            img(src=`/images/${item.item_img}` alt='image-1')

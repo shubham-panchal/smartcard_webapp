@@ -1,0 +1,37 @@
+extends layout
+
+block content
+
+  .container
+    form(action='' method='POST')
+      .form-body
+        h2 Log In
+        .input-wrapper
+          label(for='username')
+            i.fas.fa-user.icons
+          input#username.input.input--username(type='text' name='username'  placeholder='username' required)
+          hr
+        .input-wrapper
+          label(for='password')
+            i.fas.fa-unlock.icons
+          input#password.input.input--password(type='password' name='password'  placeholder='password' required)
+          hr
+        .options-body
+          .options-wrapper
+            input#admin.radio-btn-input(type='radio' name='userType' value='admin' checked='')
+            label.options(for='admin') Admin
+          .options-wrapper
+            input#faculty.radio-btn-input(type='radio' name='userType' value='faculty')
+            label.options(for='faculty') Faculty
+          .options-wrapper
+            input#student.radio-btn-input(type='radio' name='userType' value='student')
+            label.options(for='student') Student
+          .options-wrapper
+            input#vendor.radio-btn-input(type='radio' name='userType' value='vendor')
+            label.options(for='vendor') Vendor
+          
+        .footer
+          button.btn.log-in--btn(type='submit') Submit
+          if msg===false
+            p.error Incorrect username or password
+

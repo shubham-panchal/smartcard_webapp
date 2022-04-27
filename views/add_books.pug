@@ -1,0 +1,47 @@
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title=title
+  link(rel='stylesheet' href='/stylesheets/library-style.css')
+  link(rel='preconnect' href='https://fonts.googleapis.com')
+  link(rel='preconnect' href='https://fonts.gstatic.com' crossorigin='')
+  link(href='https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;700&display=swap' rel='stylesheet')
+  link(href='https://fonts.googleapis.com/css2?family=Open+Sans&display=swap' rel='stylesheet')
+  
+.container
+  header
+    nav
+      .nav-link
+        a(href='/library-admin') Library Admin
+      .nav-link
+        a(href='/library/admin') Logout
+
+    //-   <div class="nav-link"><a href="#">Logout</a></div>
+  main
+    section.section--1
+      img(src='/images/bookshelf.png' alt='bookshelf image')
+    section.section--2
+        form(action=``, method='POST').add-book--form
+            .label-wrapper
+                label.label-name(for='book_id') Book Id : 
+                input.inputBox(type='text' id='book_id' placeholder='Scan or Enter book id.' name='book_id' required='' autofocus='' )
+            .label-wrapper
+                label.label-name(for='book_name') Book Name: 
+                input.inputBox(type='text' id='book_name' placeholder='Enter book name.' name='book_name' required='' autofocus='')
+            .label-wrapper
+                label.label-name(for='author') Author: 
+                input.inputBox(type='text' id='author' placeholder='Enter author name.' name='author' required='' autofocus='')
+            .label-wrapper
+                label.label-name(for='publication') Publication : 
+                input.inputBox(type='text' id='publication' placeholder='Enter publication name.' name='publication' required='' autofocus='')
+                //- label.label-name(for='issued_by') Issued by : 
+                //- input.inputBox(type='hidden' id='issued_by' value='' placeholder='Enter ' name='issued_by' )
+            .options-wrapper
+                .options
+                    input.radio-btn-input(type='radio' id='available' name='available' value='true' checked)
+                    label.options(for='available') Available
+                .options
+                    input.radio-btn-input(type='radio' id='unavailable' name='available' value='false')
+                    label.options(for='unavailable') Unavailable
+            button.btn-submit.btn-next(type='submit') Add Book

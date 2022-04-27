@@ -1,0 +1,24 @@
+extends vendor 
+include mixins/_menu
+
+block content 
+    aside
+        ul.options-wrapper
+          a(href="/vendor/order") 
+              li.options.show--courses.selected Order
+          // <li class="options show--faculties">Faculties</li>
+          //- li.options.show--payments Payment
+          // <li class="options add-member">Mark Attendance</li>
+          a(href="/vendor/add-foodItem") 
+              li.options.show--courses Add Item
+    main
+        .main-wrapper
+            .section--1
+                each item in menu
+                    +menu(item)
+            .section--2
+                .label
+                    span.label-name 
+                    span.label-value
+                a(href="/vendor/order/place-order")     
+                    button.place-order Place order 

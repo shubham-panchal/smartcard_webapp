@@ -1,0 +1,38 @@
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title=title 
+  link(rel='stylesheet' href='/stylesheets/faculty-style.css')
+  link(rel='preconnect' href='https://fonts.googleapis.com')
+  link(rel='preconnect' href='https://fonts.gstatic.com' crossorigin='')
+  link(href='https://fonts.googleapis.com/css2?family=Poppins&display=swap' rel='stylesheet')
+.container
+  header
+    div
+    h4.heading=`Student Page`
+    a.logout-btn(href='/') Logout
+  .body-wrapper
+    aside
+      ul.options-wrapper
+        a(href=`/student/${id}/all-courses`) 
+            li.options.show--courses Courses
+        a(href=`/student/${id}/payments`) 
+            li.options.show--payments Payment  
+        a(href=`/student/${id}/change-pin`) 
+            li.options.show--payments.selected Change PIN
+        a(href=`/student/${id}/library-details`) 
+            li.options.show--payments Library Details   
+    main
+        .main-heading-wrapper
+            p.main-heading Change PIN 
+        form(action='', method='POST')
+            .labels
+                span.label-name Previous PIN
+                input#member-id.inputBox.rechargeBox(type='text' name='member_pin' autofocus required)
+            .labels
+                span.label-name New PIN
+                input#member-id.inputBox.rechargeAmount(type='text' name='new_member_pin' autofocus required)
+            .labels
+                //- a(href="/admin/recharge-wallet/step2").btn-submit 
+                button.btn.btn-submit(type='submit') Change PIN 

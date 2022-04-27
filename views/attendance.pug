@@ -1,0 +1,34 @@
+extends faculty 
+include mixins/_attendance
+
+block content 
+    aside
+        ul.options-wrapper
+            a(href=`/faculty/${facultyId}/all-courses`) 
+                li.options.show--courses.selected Courses
+            a(href=`/faculty/${facultyId}/view-attendance`) 
+                li.options.show--courses View Attendance
+            a(href=`/faculty/${facultyId}/add-course`) 
+                li.options.show--courses Add Course
+            a(href=`/faculty/${facultyId}/add-students`) 
+                li.options.show--courses Add Students
+            a(href=`/faculty/${facultyId}/payments`) 
+                li.options.show--payments Payment
+    main
+        .main-heading-wrapper
+            a(href=`/faculty/${facultyId}/all-courses/${courseName}`) 
+                p.main-heading= `Attendance for Lecture ${lectureNumber}`
+        .modal
+            .item.modal-item.item-heading
+                .item-wrapper
+                    .item-content Roll No
+                    .item-content Student Name
+                    .item-content ID
+            form(action="", method='POST').add-course-wrapper.mark-attendance
+                .labels
+                    input#new-course.select.attendance-input(type='text' value='' maxlength='10' name='studentId' oninput='attendance()' autofocus)
+            .modal-body
+                
+                if attendanceArray
+                    each attendance,i in attendanceArray, studentData
+                        +attendance(attendance,i)  

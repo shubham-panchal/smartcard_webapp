@@ -1,0 +1,43 @@
+extends admin 
+
+block content 
+    .main-heading-wrapper
+        p.main-heading Add Member
+    form(action ='', method='POST')
+        .form-wrapper
+            .labels
+                span.label-name Member type
+                select#member-type.select(name='member_type' required)
+                    option(value='faculty') Faculty
+                    option(value='student') Student
+                    option(value='vendor') Vendor
+            .labels
+                span.label-name Id
+                input#member-id.inputBox(type='text' name='member_id' placeholder='Block Letters' required)
+            .labels
+                span.label-name Name
+                input#member-name.inputBox(type='text' name='member_name' placeholder='FirstName     MiddleName     LastName' required)
+            .labels
+                span.label-name Department
+                select#dept.select(name='member_department' required)
+                    option(value='0') Select Department
+                    option(value='MECH') Mechanical Engineering
+                    option(value='elec') Electrical Engineering
+                    option(value='CSE') Computer Engineering
+                    option(value='IT') Information Technology
+                    option(value='CIVIL') Civil Engineering
+                    option(value='AUTO') Automobile Engineering
+            .labels
+                span.label-name Branch
+                select#branch.select(name='member_branch' required)
+                    option(value='0') Select Branch
+                    option(value='FE') FE
+                    option(value='SE') SE
+                    option(value='TE') TE
+                    option(value='BE') BE
+            .labels
+                span.label-name Mob.no
+                input#member-contact.inputBox(type='text' maxlength='10' name= 'member_contact' required)
+            .labels
+                //- a(href='')
+                button.btn.btn-submit(type='submit') Submit

@@ -1,0 +1,17 @@
+extends library 
+
+block content 
+    section.section--2
+      p.msg-1 Welcome to,
+      h1 The Main Library
+      p.msg-2 please select an option to begin.
+      .options-wrapper
+        .options
+            a(href="/library/borrow") 
+                button.btn-submit Borrow
+        .options
+            a(href="/library/return") 
+                button.btn-submit Return
+        .options
+            a(href="/library/fine-payment") 
+                button.btn-submit Pay Fine

@@ -1,0 +1,20 @@
+extends faculty 
+include mixins/_list_courses_ma
+
+block content
+    aside
+        ul.options-wrapper
+            a(href=`/faculty/${facultyId}/all-courses`) 
+                li.options.show--courses Courses
+            a(href=`/faculty/${facultyId}/view-attendance`) 
+                li.options.show--courses.selected View Attendance
+            a(href=`/faculty/${facultyId}/add-course`) 
+                li.options.show--courses Add Course
+            a(href=`/faculty/${facultyId}/add-students`) 
+                li.options.show--courses Add Students
+            a(href=`/faculty/${facultyId}/payments`) 
+                li.options.show--payments Payment
+    main
+        #course-wrapper.courses-wrapper
+            each course in courseArray[0].member_courses
+                +listCourses(course, facultyId)

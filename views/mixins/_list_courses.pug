@@ -1,0 +1,11 @@
+mixin listCourses(course,facultyId) 
+
+    .course
+        form(action=`/faculty/${facultyId}/delete-course`, method='POST') 
+            input(type="hidden", name='facultyId', value=`${facultyId}`)
+            input(type="hidden", name='courseId', value=`${course.courseId}`)
+            button(type='submit').delete-course 🗙
+        span.course--name=course.courseName
+        button.btn.btn-submit.btn-details
+            a(href=`/faculty/${facultyId}/all-courses/${course.courseName.split('-')[1].toLowerCase()}`) Details
+        

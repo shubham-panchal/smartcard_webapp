@@ -1,0 +1,7 @@
+mixin attendance(attendance,i)
+
+    .item.modal-item
+        .item-wrapper
+            .item-content=i+1
+            .item-content=studentData.find(student => student.member_id === attendance).member_name
+            .item-content=attendance

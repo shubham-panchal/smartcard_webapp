@@ -1,0 +1,25 @@
+extends library 
+
+block content 
+    .section--4
+            if User[0].fine_amount === 0
+
+                .wrapper--1 
+                    p.fine-title No Due Fine
+                    //- p.fine-val=`₹${User[0].fine_amount}`
+                .wrapper--1
+                    a(href=`/library`) 
+                        button.btn-submit.btn-next.btn-pay--fine Logout
+            if User[0].fine_amount > 0
+                form(action="", method='POST').form-wrapper 
+                    .wrapper--1 
+                        p.fine-title Due Fine:
+                        p.fine-val=`₹${User[0].fine_amount}`
+                    .wrapper--2
+                        label.label-name(for='member_id') User Id : 
+                        input.inputBox(type='text' id='member_id' placeholder='Scan your Barcode here.' name='member_id' required='' autofocus='')
+                    .wrapper--2
+                        label.label-name(for='member_pin') User Pin : 
+                        input.inputBox(type='text' id='member_pin' placeholder='Enter your pin here.' name='member_pin' required='' autofocus='')
+                    .wrapper--1
+                        button.btn-submit.btn-next.btn-pay--fine(type='submit') Pay Fine

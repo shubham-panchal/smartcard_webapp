@@ -1,0 +1,21 @@
+extends admin 
+
+block content 
+    .main-heading-wrapper
+        p.main-heading Recharge Wallet
+    .recharge-wrapper 
+        form(action='', method='POST')
+            .labels
+                span.label-name Member type
+                select#member-type.select(name='member_type' required)
+                    option(value='faculty') Faculty
+                    option(value='student') Student
+            .labels
+                span.label-name Member ID
+                input#member-id.inputBox.rechargeBox(type='text' name='member_id' required)
+            .labels
+                span.label-name Recharge Amount
+                input#member-id.inputBox.rechargeAmount(type='number' name='recharge_amount' min='0' required)
+            .labels
+                //- a(href="/admin/recharge-wallet/step2").btn-submit 
+                button.btn.btn-submit(type='submit') Recharge 

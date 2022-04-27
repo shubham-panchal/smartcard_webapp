@@ -1,0 +1,12 @@
+extends library 
+
+block content
+    
+    section.section--2
+      p.msg-1 Welcome to,
+      h1 The Main Library
+      form(action=``, method='POST').labels.library-login--form
+        label.label-name(for='') User Id : 
+        input.inputBox(type='text' id='userid' maxlength='10' placeholder='Scan your Barcode here.' name='member_id' oninput='login()' required='' autofocus='')
+        button.btn-submit.btn-next(type='submit') Next
+    

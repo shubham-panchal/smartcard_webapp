@@ -1,0 +1,38 @@
+extends faculty 
+include mixins/_lectures_ma
+
+block content 
+    aside
+        ul.options-wrapper
+            a(href=`/faculty/${facultyId}/all-courses`) 
+                li.options.show--courses Courses
+            a(href=`/faculty/${facultyId}/view-attendance`) 
+                li.options.show--courses.selected View Attendance    
+            a(href=`/faculty/${facultyId}/add-course`) 
+                li.options.show--courses Add Course
+            a(href=`/faculty/${facultyId}/add-students`) 
+                li.options.show--courses Add Students
+            a(href=`/faculty/${facultyId}/payments`) 
+                li.options.show--payments Payment
+    main
+        .main-heading-wrapper
+            //- a(href=`/faculty/${facultyId}/all-courses/${courseDetails[0].courseId}`) 
+            a(href=`/faculty/${facultyId}/view-attendance`) 
+                p.main-heading=courseDetails[0].courseName
+            //- .add-btn-wrapper
+            //-     a(href=`/faculty/${facultyId}/mark-attendance/${courseDetails[0].courseId}/add-lecture`) 
+            //-         button.btn.add-btn +
+
+
+        //- .add-lectures-wrapper.hidden
+        //-     .lecture-labels
+        //-         label.label-content(for='new-course') Lecture Time
+        //-         input#new-lecture.select.lecture-time(type='time' value='')
+        //-     .lecture-labels
+        //-         label.label-content(for='new-course') Lecture no
+        //-         input#new-course.select.number-inp(type='number' value='' min='1')
+        //-     button.btn.new-course--btn.new-lecture--btn Add
+        
+
+        each lecture in courseDetails[0].lectureDetails
+            +lectures(lecture, courseDetails[0].courseId, facultyId)    

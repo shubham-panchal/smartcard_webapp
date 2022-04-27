@@ -1,0 +1,12 @@
+mixin addStudents(student)
+
+
+    .item
+        .item-wrapper
+            //- .item-no 
+            .item-id= student.member_id
+            .item-name= student.member_name
+            .item-department
+                input#add.radio-btn-input(type='checkbox' name='enrolledStudents' value=`${student.member_id}`)
+                label.add-student(for='add') Add
+    

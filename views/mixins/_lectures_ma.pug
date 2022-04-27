@@ -1,0 +1,11 @@
+mixin lectures (lecture)
+
+    .all-lectures 
+        a(href=`/faculty/${facultyId}/view-attendance/${courseDetails[0].courseId}/${lecture.lectureNumber.match(/\d+/)}`) 
+        
+            .item
+                .item-wrapper.lectures-item-wrapper
+                    .item-day=lecture.lectureDay
+                    .item-day= Number(lecture.lectureTime.split(':')[0]) > 11 ? `${lecture.lectureTime} PM` : `${lecture.lectureTime} AM`
+                    .item-number=lecture.lectureNumber
+                    .item-date=lecture.lectureDate

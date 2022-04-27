@@ -1,0 +1,9 @@
+mixin listCourses(course,facultyId) 
+
+    .course
+        form(action="") 
+            button.delete-course 
+        span.course--name=course.courseName
+        button.btn.btn-submit.btn-details
+            a(href=`/faculty/${facultyId}/view-attendance/${course.courseName.split('-')[1].toLowerCase()}`) Details
+        

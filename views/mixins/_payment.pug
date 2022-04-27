@@ -1,0 +1,12 @@
+mixin payment(mov, index)
+
+    .item.payment--item
+        .item-wrapper.payment--item-wrapper
+            .item-id=`${movementId[index]}`
+            .item-date=`${new Intl.DateTimeFormat('en-GB', { dateStyle: 'full', timeStyle: 'short' }).format(new Date(movementDates[index]))}`
+            // <div class="item-roll--no">&#8377;100</div>
+            if mov < 0
+                .movements__type.movements__type--withdrawal=`-₹ ${-mov}`
+            else 
+                .movements__type.movements__type--deposit=`₹ ${mov}`
+//- (new Intl.DateTimeFormat('en-GB', { dateStyle: 'full', timeStyle: 'long' }).format(date));

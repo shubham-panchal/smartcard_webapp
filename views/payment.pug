@@ -1,0 +1,81 @@
+//- extends faculty_user 
+include mixins/_payment
+
+//- block content 
+
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title=`${userType[0].toUpperCase()+userType.slice(1)} Page` 
+  link(rel='stylesheet' href='/stylesheets/faculty-style.css')
+  link(rel='preconnect' href='https://fonts.googleapis.com')
+  link(rel='preconnect' href='https://fonts.gstatic.com' crossorigin='')
+  link(href='https://fonts.googleapis.com/css2?family=Poppins&display=swap' rel='stylesheet')
+  //
+    <script
+    src="https://kit.fontawesome.com/a3cf294e88.js"
+    crossorigin="anonymous"
+    ></script>
+.container
+  header
+    div
+    h4.heading=`${userType[0].toUpperCase()+userType.slice(1)} Page`
+    a.logout-btn(href='/') Logout
+  .body-wrapper
+    aside
+      ul.options-wrapper
+        if userType ==='student'
+          a(href=`/${userType}/${id}/all-courses`) 
+            li.options.show--courses Courses
+          a(href=`/${userType}/${id}/payments`) 
+            li.options.show--payments.selected Payment  
+          a(href=`/${userType}/${id}/library-details`) 
+            li.options.show--payments Library Details   
+          a(href=`/${userType}/${id}/change-pin`) 
+              li.options.show--payments Change PIN
+
+        if userType==='faculty'
+            a(href=`/${userType}/${facultyId}/all-courses`) 
+              li.options.show--courses Courses
+            a(href=`/faculty/${facultyId}/view-attendance`) 
+              li.options.show--courses View Attendance
+            a(href=`/faculty/${facultyId}/add-course`) 
+                li.options.show--courses Add Course
+            a(href=`/faculty/${facultyId}/add-students`) 
+                li.options.show--courses Add Students
+            a(href=`/${userType}/${facultyId}/payments`) 
+              li.options.show--payments.selected Payment
+            a(href=`/${userType}/${facultyId}/change-pin`) 
+              li.options.show--payments Change PIN
+    main
+        .payment-wrapper
+            .payment-section--1
+                span.acc-balance-label Current Balance
+                span.acc-balance-value=`₹ ${memberBalance}`
+            .payment-section--2
+                span.transactions-label Recent transactions
+
+                each mov, index in movement
+                    +payment(mov, index, movementDates, movementId)
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            //- each date in movementDates
+            //-     +payment(date)    
+
+            //- .item.payment--item
+            //-     .item-wrapper.payment--item-wrapper
+            //-         .item-id 9 January 2022 at 4:32
+            //-         .item-name College Canteen
+            //-         // <div class="item-roll--no">&#8377;100</div>
+            //-         .movements__type.movements__type--withdrawal -&#x20B9; 100

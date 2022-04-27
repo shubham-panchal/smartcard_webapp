@@ -1,0 +1,15 @@
+mixin lectures (lecture)
+
+    .all-lectures--1 
+        a(href=`/faculty/${facultyId}/all-courses/${courseDetails[0].courseId}/${lecture.lectureNumber.match(/\d+/)}`) 
+            .item.lectures-link
+                .item-wrapper.lectures-item-wrapper--1
+                    .item-day=lecture.lectureDay
+                    .item-day= Number(lecture.lectureTime.split(':')[0]) > 11 ? `${lecture.lectureTime} PM` : `${lecture.lectureTime} AM`
+                    .item-number=lecture.lectureNumber
+                    .item-date=lecture.lectureDate
+        form(action=`/faculty/${facultyId}/all-courses/${courseDetails[0].courseId}/delete-lecture`, method='POST').delete-lecture-form 
+            input(type="hidden", name='facultyId', value=`${facultyId}`)
+            input(type="hidden", name='courseId', value=`${courseDetails[0].courseId}`)
+            input(type="hidden", name='lectureNumber', value=`${lecture.lectureNumber}`)
+            button(type='submit').delete-lecture Remove

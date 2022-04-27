@@ -1,0 +1,32 @@
+extends faculty 
+include mixins/_lectures
+
+block content
+    aside
+        ul.options-wrapper
+            a(href=`/faculty/${facultyId}/all-courses`) 
+                li.options.show--courses.selected Courses
+            a(href=`/faculty/${facultyId}/view-attendance`) 
+                li.options.show--courses View Attendance
+            a(href=`/faculty/${facultyId}/add-course`) 
+                li.options.show--courses Add Course
+            a(href=`/faculty/${facultyId}/add-students`) 
+                li.options.show--courses Add Students
+            
+            a(href=`/faculty/${facultyId}/payments`) 
+                li.options.show--payments Payment
+            
+    main
+        .main-heading-wrapper
+            a(href=`/faculty/${facultyId}/all-courses/${courseDetails[0].courseId}`) 
+                p.main-heading=courseDetails[0].courseName
+        form(action=``, method='POST').add-lectures-wrapper
+            .lecture-labels
+                label.label-content(for='new-course') Lecture Time
+                input#new-lecture.select.lecture-time(type='time' value='' name='lectureTime' required)
+            .lecture-labels
+                label.label-content(for='new-course') Lecture no
+                input#new-course.select.number-inp(type='number' value='' min='1' name='lectureNumber' required)
+            button.btn.new-course--btn.new-lecture--btn(type='submit') Add
+        //- each lecture in courseDetails[0].lectureDetails
+        //-     +lectures(lecture)  

@@ -1,0 +1,29 @@
+extends faculty 
+include mixins/_class_attendance
+
+block content 
+    aside
+        ul.options-wrapper
+            a(href=`/faculty/${facultyId}/all-courses`)
+                li.options.show--courses Courses
+            a(href=`/faculty/${facultyId}/view-attendance`) 
+                li.options.show--courses.selected View Attendance    
+            a(href=`/faculty/${facultyId}/add-course`) 
+                li.options.show--courses Add Course
+            a(href=`/faculty/${facultyId}/add-students`) 
+                li.options.show--courses Add Students
+            a(href=`/faculty/${facultyId}/payments`) 
+                li.options.show--payments Payment
+    main
+        .main-heading-wrapper
+            a(href=`/faculty/${facultyId}/view-attendance/${courseId}`) 
+                    p.main-heading=`Attendance of Lecture ${lectureNumber}`
+        .item.attendance-title
+            .item-wrapper.lectures-item-wrapper.attendance-wrapper.class-attendance-wrapper
+                .item-day Sr.no
+                .item-day Id
+                .item-number Student Name
+                .item-date Attendance
+        
+        each id, i in enrolledStudents,studentData
+            +classAttendance(id, i)

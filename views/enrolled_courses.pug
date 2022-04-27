@@ -1,0 +1,19 @@
+extends student
+include mixins/_enrolled_courses
+
+block content
+
+    aside
+      ul.options-wrapper
+        a(href=`/student/${User[0]._id}/all-courses`) 
+          li.options.show--courses.selected Courses
+
+        a(href=`/student/${User[0]._id}/payments`) 
+          li.options.show--payments Payment
+
+        a(href=`/student/${User[0]._id}/library-details`) 
+          li.options.show--payments Library Details
+    main
+        #course-wrapper.courses-wrapper
+            each course in coursesArray
+                +enrolledCourses(course)

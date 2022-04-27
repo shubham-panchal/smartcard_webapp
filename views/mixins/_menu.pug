@@ -1,0 +1,18 @@
+mixin menu(item)
+
+    form(action="", method='POST').item
+        .item-section--1
+            img(src=`/images/${item.item_img}` alt=`${item.item_img}`)
+        .item-section--2
+
+            span.item-name= item.item_name 
+            span.item-price=`₹ ${item.item_price}`
+            input(type='hidden' name='item_id', value=`${item._id}`)
+            input(type='hidden' name='item_name', value=`${item.item_name}`)
+            input(type='hidden' name='item_img', value=`${item.item_img}`)
+            input(type='hidden' name='item_price', value=`${item.item_price}`)
+        .item-section--3
+            //- .qnty-wrapper
+            label(for='qnt').qnty Qnty
+            input#qnt.qnt(type='number'  min='0' name='item_qty')
+            button.btn-add-to-cart(type='submit') Add to cart

@@ -1,0 +1,69 @@
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title=title
+  link(rel='stylesheet' href='/stylesheets/library-style.css')
+  link(rel='preconnect' href='https://fonts.googleapis.com')
+  link(rel='preconnect' href='https://fonts.gstatic.com' crossorigin='')
+  link(href='https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;700&display=swap' rel='stylesheet')
+  link(href='https://fonts.googleapis.com/css2?family=Open+Sans&display=swap' rel='stylesheet')
+  script(src='/javascripts/book.js')
+.container
+  header
+    nav
+      .nav-link
+        a(href='/library') Library
+      .nav-link
+        a(href='/library') Logout
+      // <div class="nav-link"><a href="#">Logout</a></div>
+  main
+    section.section--1
+      img(src='/images/bookshelf.png' alt='bookshelf image')
+    section.section--3
+      .div-1
+        p.name Account Details
+        span.outer-span Acc Id:
+          span.inner-span=user[0].member_id
+        span.outer-span Name:
+          span.inner-span=user[0].member_name.toUpperCase()
+        span.outer-span Class:
+          span.inner-span=`${user[0].member_branch}-${user[0].member_department}`
+        span.outer-span Books Issued:
+          span.inner-span.issued-books=user[0].issued_books.length
+        span.outer-span Due Fine:
+          span.inner-span.fine-amt &#x20B9; 0
+        
+      .div-2
+        if action === 'borrow'
+          if user[0].issued_books.length < 6
+            p.msg Scan your books here.
+            form(action='' method='post').issue-book--form
+                .input-wrapper
+                    //- label(for='input--1') Book 1
+                    input#book_id.input(type='text' name='book_id' value='' maxlength='8' autofocus='' oninput='issueBook()' required)
+                //- .input-wrapper
+                //-     label(for='input--2') Book 2
+                //-     input#input--2.input(type='text' name='input--2' maxlength='10')
+                //- .input-wrapper
+                //-     label(for='input--3') Book 3
+                //-     input#input--3.input(type='text' name='input--3' maxlength='10')
+                //- button.btn(type='submit') Submit
+          else 
+            p.msg Borrow limit reached
+        else 
+          if user[0].issued_books.length > 0
+            p.msg Scan your books here.
+            form(action='' method='post').issue-book--form
+                .input-wrapper
+                    //- label(for='input--1') Book 1
+                    input#book_id.input(type='text' name='book_id' value='' maxlength='8' autofocus='' oninput='issueBook()' required)
+                //- .input-wrapper
+                //-     label(for='input--2') Book 2
+                //-     input#input--2.input(type='text' name='input--2' maxlength='10')
+                //- .input-wrapper
+                //-     label(for='input--3') Book 3
+                //-     input#input--3.input(type='text' name='input--3' maxlength='10')
+                button.btn(type='submit') Submit
+          else 
+            p.msg No Books to return.

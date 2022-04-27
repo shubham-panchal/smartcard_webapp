@@ -1,0 +1,32 @@
+extends student 
+include mixins/_issued_books
+
+block content
+    aside
+      ul.options-wrapper
+        a(href=`/student/${User[0]._id}/all-courses`) 
+          li.options.show--courses Courses
+
+        a(href=`/student/${User[0]._id}/payments`) 
+          li.options.show--payments Payment
+
+        a(href=`/student/${User[0]._id}/library-details`) 
+          li.options.show--courses.selected Library Details
+    main
+        .payment-wrapper
+            .payment-section--1
+                span.acc-balance-label Due Fine
+                span.acc-balance-value=`₹ ${User[0].fine_amount}`
+            .payment-section--2
+                span.transactions-label Issued Books
+                
+                .item.book-details
+                    .item-wrapper.book-details-wrapper 
+                        .item-day Book id 
+                        .item-date Issue Date
+                        .item-name Book Name
+                        .item-date Return Date
+
+                
+                each book in issuedBooks 
+                    +issued_books(book)

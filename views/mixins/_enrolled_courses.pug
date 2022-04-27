@@ -1,0 +1,8 @@
+mixin enrolledCourses(course) 
+
+    .course
+        button.delete-course &#xF5D9;
+        span.course--name=course.courseName
+        button.btn.btn-submit.btn-details
+            a(href=`/student/${User[0]._id}/all-courses/${course.courseId}`) Details
+        

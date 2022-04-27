@@ -1,0 +1,13 @@
+extends library 
+
+block content 
+    section.section--2
+        p.msg-1 Enter password to login
+        h1 Admin Login
+        form(action=``, method='POST').labels
+            label.label-name(for='password') Password: 
+            input.inputBox(type='password' id='password' placeholder='Enter library-admin password' name='library_admin_password' required='' autofocus='')
+            
+            button.btn-submit.btn-next(type='submit') Login
+        if msg == false 
+            p.error Invalid password

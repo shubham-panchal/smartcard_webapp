@@ -1,0 +1,37 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title=title
+  link(rel='stylesheet' href='/stylesheets/library-style.css')
+  link(rel='preconnect' href='https://fonts.googleapis.com')
+  link(rel='preconnect' href='https://fonts.gstatic.com' crossorigin='')
+  link(href='https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;700&display=swap' rel='stylesheet')
+  link(href='https://fonts.googleapis.com/css2?family=Open+Sans&display=swap' rel='stylesheet')
+  script(src='/javascripts/book.js')
+.container
+  header
+    nav
+      .nav-link
+        a(href='/library') Library
+      // <div class="nav-link"><a href="#">Logout</a></div>
+  main
+    section.section--1
+      img(src='/images/bookshelf.png' alt='bookshelf image')
+    block content 
+//-     section.section--2
+//-       p.msg-1 Welcome to,
+//-       h1 The Main Library
+//-       p.msg-2 please select an option to begin.
+//-       .options-wrapper
+//-         .options
+//-             a(href="/library/borrow") 
+//-                 button.btn-submit Borrow
+//-         .options
+//-             a(href="/library/return") 
+//-                 button.btn-submit Return
+//-         .options
+//-             a(href="/library/account") 
+//-                 button.btn-submit Account
+//- script(src='/javascripts/script.js')

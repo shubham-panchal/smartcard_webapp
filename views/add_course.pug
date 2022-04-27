@@ -1,0 +1,25 @@
+extends faculty 
+
+block content 
+  aside
+    ul.options-wrapper
+      a(href=`/faculty/${facultyId}/all-courses`) 
+        li.options.show--courses Courses
+      a(href=`/faculty/${facultyId}/view-attendance`) 
+          li.options.show--courses View Attendance
+      a(href=`/faculty/${facultyId}/add-course`) 
+        li.options.show--courses.selected Add Course
+      a(href=`/faculty/${facultyId}/add-students`) 
+        li.options.show--courses Add Students
+      a(href=`/faculty/${facultyId}/payments`) 
+        li.options.show--payments Payment
+  main
+    .main-heading-wrapper
+        p.main-heading Add Course
+    
+    form(action="", method='POST').add-course-wrapper
+        .labels
+          label.label-content(for='new-course') Course Name
+          input#new-course.select(type='text' value='' name='courseName' placeholder='Year-CourseName' autocapitalize autofocus required)
+        .labels
+          button.btn.btn-submit(type='submit') Add

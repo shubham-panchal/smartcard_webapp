@@ -1,0 +1,16 @@
+extends library 
+
+block content 
+    .section--5
+        if msg === 'insufficient balance'        
+            .payment--declined Insufficient Balance
+            a(href=`/library`) 
+                button.btn-submit.btn-next.btn-pay--fine Logout
+        if msg === 'invalid pin'
+            .payment--declined Invalid Pin
+            a(href=`/library/fine-payment/${User[0].member_id.toLowerCase()}`) 
+                button.btn-submit.btn-next.btn-pay--fine Try Again
+        if msg === 'success'
+            .payment--successfull Payment Successful
+            a(href=`/library`) 
+                button.btn-submit.btn-next.btn-pay--fine Logout

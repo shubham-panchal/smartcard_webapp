@@ -1,0 +1,200 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Vendor&apos;s Page
+  link(rel='stylesheet' href='/stylesheets/vendor-style.css')
+  link(rel='preconnect' href='https://fonts.googleapis.com')
+  link(rel='preconnect' href='https://fonts.gstatic.com' crossorigin='')
+  link(href='https://fonts.googleapis.com/css2?family=Poppins&display=swap' rel='stylesheet')
+  //
+    <script
+    src="https://kit.fontawesome.com/a3cf294e88.js"
+    crossorigin="anonymous"
+    ></script>
+.container
+  header
+    div
+    h4.heading Vendor&apos;s Page
+    a.logout-btn(href='/') Logout
+  .body-wrapper
+    block content
+      aside
+        ul.options-wrapper
+          a(href="/vendor/order") 
+              li.options.show--courses Order
+          // <li class="options show--faculties">Faculties</li>
+          //- li.options.show--payments Payment
+          // <li class="options add-member">Mark Attendance</li>
+          a(href="/vendor/add-foodItem") 
+              li.options.show--courses Add Item
+      main
+         
+    //-   .main-wrapper
+    //-     .section--1
+    //-       .item
+    //-         .item-section--1
+    //-           img(src='./images/img-1.jpg' alt='image-1')
+    //-         .item-section--2
+    //-           span.item-name Masala Dosa
+    //-           span.item-price &#x20B9;40
+    //-         .item-section--3
+    //-           .qnty-wrapper
+    //-             label(for='qnty') Qnt
+    //-             input#qnt.qnt(type='number' min='0' value='')
+    //-           button.btn-add-to-cart Add to cart
+    //-       .item
+    //-         .item-section--1
+    //-           img(src='./images/img-2.jfif' alt='image-2')
+    //-         .item-section--2
+    //-           span.item-name Tea/Coffee
+    //-           span.item-price &#x20B9;10
+    //-         .item-section--3
+    //-           .qnty-wrapper
+    //-             label(for='qnty') Qnt
+    //-             input#qnt.qnt(type='number' min='0' value='')
+    //-           button.btn-add-to-cart Add to cart
+    //-       .item
+    //-         .item-section--1
+    //-           img(src='./images/img-1.jpg' alt='image-1')
+    //-         .item-section--2
+    //-           span.item-name Masala Dosa
+    //-           span.item-price &#x20B9;40
+    //-         .item-section--3
+    //-           .qnty-wrapper
+    //-             label(for='qnty') Qnt
+    //-             input#qnt.qnt(type='number' min='0' value='')
+    //-           button.btn-add-to-cart Add to cart
+    //-       .item
+    //-         .item-section--1
+    //-           img(src='./images/img-1.jpg' alt='image-1')
+    //-         .item-section--2
+    //-           span.item-name Masala Dosa
+    //-           span.item-price &#x20B9;40
+    //-         .item-section--3
+    //-           .qnty-wrapper
+    //-             label(for='qnty') Qnt
+    //-             input#qnt.qnt(type='number' min='0' value='')
+    //-           button.btn-add-to-cart Add to cart
+    //-       .item
+    //-         .item-section--1
+    //-           img(src='./images/img-1.jpg' alt='image-1')
+    //-         .item-section--2
+    //-           span.item-name Masala Dosa
+    //-           span.item-price &#x20B9;40
+    //-         .item-section--3
+    //-           .qnty-wrapper
+    //-             label(for='qnty') Qnt
+    //-             input#qnt.qnt(type='number' min='0' value='')
+    //-           button.btn-add-to-cart Add to cart
+    //-       .item
+    //-         .item-section--1
+    //-           img(src='./images/img-1.jpg' alt='image-1')
+    //-         .item-section--2
+    //-           span.item-name Masala Dosa
+    //-           span.item-price &#x20B9;40
+    //-         .item-section--3
+    //-           .qnty-wrapper
+    //-             label(for='qnty') Qnt
+    //-             input#qnt.qnt(type='number' min='0' value='')
+    //-           button.btn-add-to-cart Add to cart
+    //-     .section--2
+    //-       .label
+    //-         span.label-name Total:
+    //-         span.label-value &#x20B9;100
+    //-       button.place-order Place order
+    //-       // <button class="view-order">View order</button>
+    //-     // <div class="section--3"></div>
+//-   .modal
+//-     .modal-section--1
+//-       .order-wrapper--1
+//-         span.order-details-heading Order Details
+//-       .order-wrapper--2
+//-         .order-items
+//-           .order-items-wrapper--1
+//-             span.order-item-name Masala Dosa
+//-             .order-item-label-wrapper
+//-               span.order-item-label
+//-                 | Qnt: 
+//-                 span.order-item-val 1
+//-               span.order-item-label
+//-                 | Mrp: 
+//-                 span.order-item-val &#x20B9;40
+//-           .order-items-wrapper--2
+//-             img(src='./images/img-1.jpg' alt='image-1')
+//-         .order-items
+//-           .order-items-wrapper--1
+//-             span.order-item-name Masala Dosa
+//-             .order-item-label-wrapper
+//-               span.order-item-label
+//-                 | Qnt: 
+//-                 span.order-item-val 1
+//-               span.order-item-label
+//-                 | Mrp: 
+//-                 span.order-item-val &#x20B9;40
+//-           .order-items-wrapper--2
+//-             img(src='./images/img-1.jpg' alt='image-1')
+//-         .order-items
+//-           .order-items-wrapper--1
+//-             span.order-item-name Masala Dosa
+//-             .order-item-label-wrapper
+//-               span.order-item-label
+//-                 | Qnt: 
+//-                 span.order-item-val 1
+//-               span.order-item-label
+//-                 | Mrp: 
+//-                 span.order-item-val &#x20B9;40
+//-           .order-items-wrapper--2
+//-             img(src='./images/img-1.jpg' alt='image-1')
+//-         .order-items
+//-           .order-items-wrapper--1
+//-             span.order-item-name Masala Dosa
+//-             .order-item-label-wrapper
+//-               span.order-item-label
+//-                 | Qnt: 
+//-                 span.order-item-val 1
+//-               span.order-item-label
+//-                 | Mrp: 
+//-                 span.order-item-val &#x20B9;40
+//-           .order-items-wrapper--2
+//-             img(src='./images/img-1.jpg' alt='image-1')
+//-         .order-items
+//-           .order-items-wrapper--1
+//-             span.order-item-name Masala Dosa
+//-             .order-item-label-wrapper
+//-               span.order-item-label
+//-                 | Qnt: 
+//-                 span.order-item-val 1
+//-               span.order-item-label
+//-                 | Mrp: 
+//-                 span.order-item-val &#x20B9;40
+//-           .order-items-wrapper--2
+//-             img(src='./images/img-1.jpg' alt='image-1')
+//-         .order-items
+//-           .order-items-wrapper--1
+//-             span.order-item-name Masala Dosa
+//-             .order-item-label-wrapper
+//-               span.order-item-label
+//-                 | Qnt: 
+//-                 span.order-item-val 1
+//-               span.order-item-label
+//-                 | Mrp: 
+//-                 span.order-item-val &#x20B9;40
+//-           .order-items-wrapper--2
+//-             img(src='./images/img-1.jpg' alt='image-1')
+//-       .order-wrapper--3
+//-         span.wrapper-3-text Total
+//-         span.wrapper-3-val &#x20B9; 200.00
+//-     .modal-section--2
+//-       .payment--successfull.hidden Payment Successful
+//-       .payment--declined.hidden Insufficient Balance
+//-       .outer-wrapper
+//-         .inner-wrapper
+//-           input.user-id.input(type='text' placeholder='user ID')
+//-         .inner-wrapper
+//-           input.user-password.input(type='password' placeholder='password')
+//-         button.btn-confirm-payment Proceed to pay
+//-   .overlay.hidden
+//- //- script(type='module' src='vendor-script.js')
+//- // <script type="module" src="payment.js"></script>

@@ -1,0 +1,28 @@
+extends student  
+include mixins/_student_attendance
+
+block content
+
+    aside
+      ul.options-wrapper
+        a(href=`/student/${User[0]._id}/all-courses`) 
+          li.options.show--courses.selected Courses
+
+        a(href=`/student/${User[0]._id}/payments`) 
+          li.options.show--payments Payment
+
+        a(href=`/student/${User[0]._id}/library-details`) 
+          li.options.show--payments Library Details
+    main
+        .main-heading-wrapper
+            a(href=`/student/${User[0]._id}/all-courses`) 
+                    p.main-heading Attendance
+        .item.attendance-title
+            .item-wrapper.lectures-item-wrapper.attendance-wrapper
+                .item-day Day
+                .item-day Time
+                .item-number Lecture No.
+                .item-date Date
+        
+        each lecture in lectureDetails 
+            +attendance(lecture, userId)

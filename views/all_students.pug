@@ -1,0 +1,22 @@
+extends admin 
+include mixins/_students
+
+block content
+    .main-heading-wrapper
+        p.main-heading Students
+        //- select#department.department.hidden(name='department')
+        //-     option(value='IT') IT
+        //-     option(value='CSE') CSE
+        //-     option(value='MECH') MECH
+        //-     option(value='CIVIL') CIVIL
+        //-     option(value='AUTO') AUTO
+    .main-wrapper
+        each student in allStudents
+            +student(student)
+        //- .item
+        //-     .item-wrapper
+        //-         .item-no 1
+        //-         .item-id 2018HE0313
+        //-         .item-name Shubham Pradeep Panchal Pradnya
+        //-         .item-department IT
+        

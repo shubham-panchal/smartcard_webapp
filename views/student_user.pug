@@ -1,0 +1,172 @@
+extends student 
+
+block content 
+  aside
+    ul.options-wrapper
+      a(href=`/student/${id}/all-courses`) 
+        li.options.show--courses Courses
+      //- a(href=`/faculty/add-course`) 
+      //-   li.options.show--courses Add Course
+      // <li class="options show--faculties">Faculties</li>
+      a(href=`/student/${id}/payments`) 
+        li.options.show--payments Payment
+      a(href=`/student/${id}/library-details`) 
+        li.options.show--library-details Library Details
+      // <li class="options add-member">Mark Attendance</li>
+  main
+      //- block content
+//-       .payment-wrapper.hidden
+//-         .payment-section--1
+//-           span.acc-balance-label Current Balance
+//-           span.acc-balance-value &#x20B9;1000.00
+//-         .payment-section--2
+//-           span.transactions-label Recent transactions
+//-           .item.payment--item
+//-             .item-wrapper.payment--item-wrapper
+//-               .item-id 9 January 2022 at 4:32
+//-               .item-name College Canteen
+//-               // <div class="item-roll--no">&#8377;100</div>
+//-               .movements__type.movements__type--withdrawal
+//-                 | -&#x20B9; 100
+//-           //
+//-             <div class="item payment--item">
+//-             <div class="item-wrapper payment--item-wrapper">
+//-             <div class="item-id">09/02/2022 - 04:32 pm</div>
+//-             <div class="item-name">College Canteen</div>
+//-             <div class="movements__type movements__type--deposit">
+//-             &#8377;100
+//-             </div>
+//-             </div>
+//-             </div>
+//-       .main-heading-wrapper
+//-         p.main-heading
+//-         .add-btn-wrapper.hidden
+//-           button.btn.add-btn +
+//-         //
+//-           <select name="department" class="department" id="department">
+//-           <option value="IT">IT</option>
+//-           <option value="CSE">CSE</option>
+//-           <option value="MECH">MECH</option>
+//-           <option value="CIVIL">CIVIL</option>
+//-           <option value="AUTO">AUTO</option>
+//-           </select>
+//-       .add-course-wrapper.hidden
+//-         .labels
+//-           label.label-content(for='new-course') Course Name
+//-           input#new-course.select(type='text' value='')
+//-         button.btn.new-course--btn Add
+//-       .add-lectures-wrapper.hidden
+//-         .lecture-labels
+//-           label.label-content(for='new-course') Lecture Time
+//-           input#new-lecture.select.lecture-time(type='time' value='')
+//-         .lecture-labels
+//-           label.label-content(for='new-course') Lecture no
+//-           input#new-course.select.number-inp(type='number' value='' min='1')
+//-         button.btn.new-course--btn.new-lecture--btn Add
+//-       .main-wrapper
+//-         //
+//-           <div class="item">
+//-           <div class="item-wrapper">
+//-           <div class="item-id">2018HE0313</div>
+//-           <div class="item-name">Shubham Pradeep Panchal Pradnya</div>
+//-           <div class="item-roll--no">39</div>
+//-           </div>
+//-           </div>
+//-       //
+//-         <div class="form-wrapper hidden">
+//-         <div class="labels">
+//-         <span class="label-name">Member type</span>
+//-         <select name="member-type" id="member-type" class="select">
+//-         <option value="faculty">Faculty</option>
+//-         <option value="student">Student</option>
+//-         </select>
+//-         </div>
+//-         <div class="labels">
+//-         <span class="label-name">Id</span>
+//-         <input type="text" id="member-id" class="inputBox" />
+//-         </div>
+//-         <div class="labels">
+//-         <span class="label-name">Name</span>
+//-         <input type="text" id="member-name" class="inputBox" />
+//-         </div>
+//-         <div class="labels">
+//-         <span class="label-name">Department</span>
+//-         <select name="dept" id="dept" class="select">
+//-         <option value="0">Select Department</option>
+//-         <option value="MECH">Mechanical Engineering</option>
+//-         <option value="elec">Electrical Engineering</option>
+//-         <option value="CSE">Computer Engineering</option>
+//-         <option value="IT">Information Technology</option>
+//-         <option value="CIVIL">Civil Engineering</option>
+//-         <option value="AUTO">Automobile Engineering</option>
+//-         </select>
+//-         </div>
+//-         <div class="labels">
+//-         <span class="label-name">Branch</span>
+//-         <select name="branch" id="branch" class="select">
+//-         <option value="0">Select Branch</option>
+//-         <option value="fe">FE</option>
+//-         <option value="se">SE</option>
+//-         <option value="te">TE</option>
+//-         <option value="be">BE</option>
+//-         </select>
+//-         </div>
+//-         <div class="labels">
+//-         <span class="label-name">Mob.no</span>
+//-         <input type="number" class="inputBox" id="member-contact" />
+//-         </div>
+//-         <div class="labels">
+//-         <button type="submit" class="btn btn-submit">Submit</button>
+//-         </div>
+//-         </div>
+//-       #course-wrapper.courses-wrapper
+//-         //
+//-           <div class="course">
+//-           <button class="delete-course">&#128473;</button>
+//-           <span class="course--name">BE-BDA</span>
+//-           <button class="btn btn-submit btn-details">Details</button>
+//-           </div>
+//-           <div class="course">
+//-           <span class="course--name">BE-DBM</span>
+//-           <button class="btn btn-submit btn-details">Details</button>
+//-           </div>
+//-   .modal.hidden
+//-     .item.modal-item.item-heading
+//-       .item-wrapper
+//-         .item-content ID
+//-         .item-content Student Name
+//-         .item-content Roll No
+//-       button.close-modal &times;
+//-     .modal-body.hidden
+//-       //
+//-         <div class="item modal-item">
+//-         <div class="item-wrapper">
+//-         <div class="item-id">2018HE0313</div>
+//-         <div class="item-name">Shubham Pradeep Panchal Pradnya</div>
+//-         <div class="item-roll--no">39</div>
+//-         </div>
+//-         </div>
+//-         <div class="item modal-item">
+//-         <div class="item-wrapper">
+//-         <div class="item-id">2018HE0313</div>
+//-         <div class="item-name">Shubham Pradeep Panchal Pradnya</div>
+//-         <div class="item-roll--no">39</div>
+//-         </div>
+//-         </div>
+//-         <div class="item modal-item">
+//-         <div class="item-wrapper">
+//-         <div class="item-id">2018HE0313</div>
+//-         <div class="item-name">Shubham Pradeep Panchal Pradnya</div>
+//-         <div class="item-roll--no">39</div>
+//-         </div>
+//-         </div>
+//-         <div class="item modal-item">
+//-         <div class="item-wrapper">
+//-         <div class="item-id">2018HE0313</div>
+//-         <div class="item-name">Shubham Pradeep Panchal Pradnya</div>
+//-         <div class="item-roll--no">39</div>
+//-         </div>
+//-         </div>
+//-   .overlay.hidden
+//- //- script(type='module' src='faculty-script.js')
+//- //- script(type='module' src='payment.js')

@@ -1,0 +1,13 @@
+mixin classAttendance(id, i)
+    .all-lectures 
+        .item.attendance
+            .item-wrapper.lectures-item-wrapper.attendance-item
+                .item-day=i+1
+                .item-day=id
+                .item-number=studentData.find(i => i.member_id === id).member_name
+                
+                if attendanceArray.includes(id)
+                    .class__attendance.attendance__type.attendance__type--present Present
+                else
+                    .class__attendance.attendance__type.attendance__type--absent  Absent
+    

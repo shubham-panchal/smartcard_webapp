@@ -1,0 +1,11 @@
+mixin issued_books(book)
+    -const date1 = new Date(book.issue_date)
+    -const date2 = new Date(book.return_date)
+
+    .all-lectures.book-details-container
+        .item.all-books
+            .item-wrapper.lectures-item-wrapper
+                .item-id=book.book_id
+                .item-issue=`${date1.getDate()}/${date1.getMonth()+1}/${date1.getFullYear()}`
+                .item-name=book.book_name
+                .item-return=`${date2.getDate()}/${date2.getMonth()+1}/${date2.getFullYear()}`
